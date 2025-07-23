@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Confirm Task Completion</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Confirm Task Completion</h1>
+    <p>本当に次のタスクを完了しますか？</p>
+    
+    <h2>{{ task.title }}</h2>
+    <ul>
+        <li>Posted at: {{ task.posted_at }}</li>
+        {% if task.due_at %}
+        <li>Due at: {{ task.due_at }}</li>
+        {% endif %}
+    </ul>
+
+    <form action="{% url 'close' task.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">はい、完了します</button>
+        <a href="{% url 'index' %}">キャンセル</a>
+    </form>
+</body>
+</html>

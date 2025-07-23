@@ -24,4 +24,6 @@ urlpatterns = [
     path('<int:task_id>/', todo_views.detail, name='detail'),
     path('<int:task_id>/update', todo_views.update, name='update'),
     path('<int:task_id>/delete', todo_views.delete, name='delete'),
+    # 以下の行を新しく追加
+    path('<int:task_id>/close/', todo_views.close, name='close'),
 ]
